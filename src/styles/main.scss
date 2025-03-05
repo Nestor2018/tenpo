@@ -1,0 +1,8 @@
+@use "variables";
+@use "reset";
+@use "mixins";
+
+body {
+  background-color: variables.$background-color;
+  min-height: 100vh;
+}

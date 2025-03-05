@@ -1,0 +1,58 @@
+@use "sass:color";
+@use "../styles/variables";
+@use "../styles/mixins";
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  .login-form {
+    background: variables.$card-bg;
+    padding: variables.$spacing-lg;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: variables.$spacing-md;
+    }
+
+    input {
+      width: 100%;
+      padding: variables.$spacing-sm;
+      margin-bottom: variables.$spacing-md;
+      border: 1px solid variables.$border-color;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: variables.$spacing-sm;
+      background-color: variables.$primary-color;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: color.adjust(
+          variables.$primary-color,
+          $lightness: -10%
+        );
+      }
+    }
+  }
+
+  @include mixins.respond-to("mobile") {
+    .login-form {
+      max-width: 90%;
+    }
+  }
+}
