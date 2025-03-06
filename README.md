@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+# Proyecto React con Redux y Rutas Protegidas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto desarrollado en React con TypeScript, utilizando Redux Toolkit
+para la gestión de estado, Redux Persist para persistencia del estado y React Router
+para manejo de rutas protegidas. Además, se integra con una API simulada para la
+autenticación y la obtención de datos.
 
-Currently, two official plugins are available:
+## 🛠 Tecnologías Usadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + TypeScript
+- Vite como bundler
+- Redux Toolkit + Redux Persist
+- React Router para navegación
+- Jest + Testing Library para pruebas unitarias
+- Axios para llamadas a la API
+- SCSS para estilos
 
-## Expanding the ESLint configuration
+## 📂 Estructura del Proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+├── src/
+│ ├── **tests**/ # Pruebas unitarias
+│ ├── assets/ # Recursos estáticos
+│ ├── pages/ # Páginas principales (Home, Login)
+│ ├── routes/ # Configuración de rutas protegidas
+│ ├── services/ # Llamadas a la API
+│ ├── store/ # Redux store y slices
+│ ├── styles/ # Archivos SCSS globales
+│ ├── App.tsx # Componente principal
+│ ├── main.tsx # Punto de entrada
+│ ├── index.css # Estilos globales
+│ ├── vite-env.d.ts # Configuración de TypeScript para Vite
+└──
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Instalación y Ejecución
+
+- Clonar el repositorio:
+
+```bash
+git clone <git@github.com:Nestor2018/tenpo.git>
+cd tenpo
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Ejecutar el proyecto en modo desarrollo
+
+```bash
+npm run dev
+```
+
+## 🔑 Autenticación y Rutas Protegidas
+
+El proyecto usa Redux para gestionar la autenticación y protege rutas con `PrivateRoute`.
+Los usuarios deben iniciar sesión en la página de Login para acceder a `Home`.
+
+- **Login:** Simula una autenticación con `fakeLogin`, generando un token falso
+
+- **Redux Persist:** Mantiene la sesión del usuario en `localStorage`
+
+- **Rutas protegidas:** `PrivateRoute` bloquea el acceso a `/` si el usuario no
+  está autenticado
+
+## 📡 API Simulada
+
+Se usa `jsonplaceholder.typicode.com` como backend de prueba y un `fakeLogin` para
+autenticación:
+
+## 🧪 Testing
+
+El proyecto incluye pruebas unitarias en `__tests__/`.
+
+Ejecutar las pruebas con:
+
+```bash
+npm run test
 ```

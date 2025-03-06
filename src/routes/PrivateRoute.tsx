@@ -3,15 +3,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
 const PrivateRoute = () => {
-  const { isAuthenticated, isLoading } = useSelector(
-    (state: RootState) => state.auth,
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated,
   );
-  console.log(isAuthenticated);
-
-  if (isLoading) {
-    return <div>Loading...</div>; // Mostramos algo mientras se rehidrata
-  }
-
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 };
 

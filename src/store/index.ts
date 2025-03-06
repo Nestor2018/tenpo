@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./authSlice";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // Usa localStorage por defecto
+import storage from "redux-persist/lib/storage";
 
 // Configuración de persistencia
 const persistConfig = {
-  key: "root", // Clave bajo la cual se guardará el estado en localStorage
+  key: "root",
   storage,
 };
 

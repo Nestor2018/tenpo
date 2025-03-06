@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
 import { fakeLogin } from "../services/api";
@@ -11,9 +11,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const token = useSelector((state: RootState) => state.auth.token);
-  console.log("login", token);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const response = await fakeLogin(email, password);
@@ -24,7 +21,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
-        <h2>Login</h2>
+        <h2>Iniciar sesión</h2>
         <input
           type="email"
           value={email}
