@@ -17,6 +17,7 @@ autenticación y la obtención de datos.
 
 ## 📂 Estructura del Proyecto
 
+```markdown
 ├── src/
 │ ├── **tests**/ # Pruebas unitarias
 │ ├── assets/ # Recursos estáticos
@@ -30,6 +31,7 @@ autenticación y la obtención de datos.
 │ ├── index.css # Estilos globales
 │ ├── vite-env.d.ts # Configuración de TypeScript para Vite
 └──
+```
 
 ## 🚀 Instalación y Ejecución
 
